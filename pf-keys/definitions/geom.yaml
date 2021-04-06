@@ -354,7 +354,13 @@ Geom:
         permeability field will be assigned. These geometries must cover the
         entire computational domain.
       domains:
-        AnyString:
+        EnumDomain:
+          locations: 
+            - /GeomInput/{GeomInputItem}/GeomNames
+            - /GeomInput/{GeomInputItem}/GeomName
+      handlers:
+        NamesToListConverter:
+          type: ChildrenHandler
 
     TensorByGeom:
       __doc__: >

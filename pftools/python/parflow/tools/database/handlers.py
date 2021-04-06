@@ -31,8 +31,12 @@ class ChildHandler:
     """
     def decorate(self, value, container, class_name=None, location='.',
                  eager=None, **kwargs):
-        klass = getattr(generated, class_name)
-        destination_containers = container.select(location)
+
+        klass = None
+        destination_containers = []
+        if class_name:
+            klass = getattr(generated, class_name)
+            destination_containers = container.select(location)
         valid_name = value.strip()
 
         if not valid_name:
@@ -118,6 +122,7 @@ class SplitHandler:
 
         raise ValueHandlerException(
             f'{value} is not of the expected type for SplitHandler')
+
 
 # -----------------------------------------------------------------------------
 # Helper map with an instance of each Value handler
