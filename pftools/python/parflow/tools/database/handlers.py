@@ -109,8 +109,7 @@ class EnumLocationsHandler:
     def __init__(self):
         self.children_handler = ChildrenHandler()
 
-    def decorate(self, value):
-        container = None
+    def decorate(self, value, container, **kwargs):
         return self.children_handler.decorate(value, container)
 
 # -----------------------------------------------------------------------------
