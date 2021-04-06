@@ -360,7 +360,7 @@ Geom:
             - /GeomInput/{GeomInputItem}/GeomName
       handlers:
         NamesToListConverter:
-          type: ChildrenHandler
+          type: EnumLocationsHandler
 
     TensorByGeom:
       __doc__: >

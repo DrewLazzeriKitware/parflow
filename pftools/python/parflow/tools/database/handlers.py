@@ -102,6 +102,18 @@ class ChildrenHandler:
             f'{value} is not of the expected type for ChildrenHandler')
 
 # -----------------------------------------------------------------------------
+class EnumLocationsHandler:
+    """
+    This class processes user-defined name inputs for an EnumDomain
+    """
+    def __init__(self):
+        self.children_handler = ChildrenHandler()
+
+    def decorate(self, value):
+        container = None
+        return self.children_handler.decorate(value, container)
+
+# -----------------------------------------------------------------------------
 
 class SplitHandler:
     """
