@@ -526,6 +526,10 @@ Contaminants:
         type: ChildrenHandler
         class_name: GeomContItem
         location: /Geom/{GeomItem}/
+      ConcentrationPhaseContaminantUpdater:
+        type: ChildrenHandler
+        class_name: ConcentrationPhaseContItem
+        location: /Wells/{WellItem}/{WellIntervalItem}/Concentration/{ConcentrationPhaseItem}
       InjectionConcentrationPhaseContaminantUpdater:
         type: ChildrenHandler
         class_name: InjectionConcentrationPhaseContaminantItem
