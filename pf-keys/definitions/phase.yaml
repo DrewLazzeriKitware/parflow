@@ -50,16 +50,14 @@ Phase:
         type: ChildrenHandler
         class_name: GeomICSaturationPhaseItem
         location: /Geom/{GeomItem}/ICSaturation
+      BCSaturationPhaseUpdater:
+        type: ChildrenHandler
+        class_name: BCSatPhaseItem
+        location: /Patch/{BCItem}/BCSaturation
       BCPressureIntervalPhaseUpdater:
         type: ChildrenHandler
         class_name: BCPressIntPhaseItem
         location: /Patch/{BCItem}/BCPressure/{BCPressureIntervalItem}
-      BCSaturationPhaseUpdater:
-        type: ChildrenHandler
-        class_name: BCSatPhaseItem
-        location: /Patch/{BCItem}/BCSaturation/{BCItemBCSaturation}
-
-
 
   RelPerm:
     __doc__: >
