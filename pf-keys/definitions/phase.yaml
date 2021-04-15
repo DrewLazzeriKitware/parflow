@@ -56,7 +56,7 @@ Phase:
         location: /Patch/{BCItem}/BCPressure/{BCPressureIntervalItem}
       BCSaturationPhaseUpdater:
         type: ChildrenHandler
-        class_name: BCItemBCSaturation
+        class_name: BCSatPhaseItem
         location: /Patch/{BCItem}/BCSaturation/{BCItemBCSaturation}
 
 
