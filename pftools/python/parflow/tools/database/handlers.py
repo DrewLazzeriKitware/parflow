@@ -102,9 +102,9 @@ class ChildrenHandler:
             f'{value} is not of the expected type for ChildrenHandler')
 
 # -----------------------------------------------------------------------------
-class EnumLocationsHandler:
+class ListHandler:
     """
-    This class processes user-defined name inputs for an EnumDomain
+    This class ensures the output is not a single string but a list of trimmed string.
     """
     def __init__(self):
         self.children_handler = ChildrenHandler()
