@@ -262,7 +262,13 @@ SpecificStorage:
       [Type: string] This key specifies all of the geometries on which a different specific storage value will be
       assigned. These geometries must cover the entire computational domain.
     domains:
-      AnyString:
+      EnumDomain:
+        locations: 
+          - /GeomInput/{GeomInputItem}/GeomNames
+          - /GeomInput/{GeomInputItem}/GeomName
+    handlers:
+      NamesToListConverter:
+        type: ListHandler
 
   Type:
     help: >
@@ -290,7 +296,13 @@ dzScale:
       [Type: string] This key specifies which problem domain is being applied a variable dz subsurface. These
       geometries must cover the entire computational domain.
     domains:
-      AnyString:
+      EnumDomain:
+        locations: 
+          - /GeomInput/{GeomInputItem}/GeomNames
+          - /GeomInput/{GeomInputItem}/GeomName
+    handlers:
+      NamesToListConverter:
+        type: ListHandler
 
   Type:
     help: >
@@ -383,8 +395,14 @@ Geom:
           entries will be assigned. These geometries must cover the entire
           computational domain.
         domains:
-          AnyString:
-
+          EnumDomain:
+            locations: 
+              - /GeomInput/{GeomInputItem}/GeomNames
+              - /GeomInput/{GeomInputItem}/GeomName
+        handlers:
+          NamesToListConverter:
+            type: ListHandler
+  
   Porosity:
     __doc__: >
       run.Geom.Porosity input options are: GeomNames
@@ -1473,7 +1491,13 @@ CapPressurePhaseItem:
       Regions listed later “overlay” regions listed earlier. Any geometries not listed will be assigned 0:0 capillary pressure
       by ParFlow.
     domains:
-      AnyString:
+      EnumDomain:
+        locations: 
+          - /GeomInput/{GeomInputItem}/GeomNames
+          - /GeomInput/{GeomInputItem}/GeomName
+    handlers:
+      NamesToListConverter:
+        type: ListHandler
 
 # -----------------------------------------------------------------------------
 # Mannings

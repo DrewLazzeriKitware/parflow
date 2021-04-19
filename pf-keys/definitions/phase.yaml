@@ -86,7 +86,13 @@ Phase:
         [Type: string] This key specifies the geometries on which relative permeability will be given. The union of these geometries
         must cover the entire computational domain.
       domains:
-        AnyString:
+        EnumDomain:
+          locations: 
+            - /GeomInput/{GeomInputItem}/GeomNames
+            - /GeomInput/{GeomInputItem}/GeomName
+      handlers:
+        NamesToListConverter:
+          type: ListHandler                       
 
     VanGenuchten:
       __class__: PhaseRelPermVanGenuchten
@@ -134,7 +140,14 @@ Phase:
         [Type: string] This key specifies the geometries on which saturation will be given. The union of these geometries
         must cover the entire computational domain.
       domains:
-        AnyString:
+        EnumDomain:
+          locations: 
+            - /GeomInput/{GeomInputItem}/GeomNames
+            - /GeomInput/{GeomInputItem}/GeomName
+      handlers:
+        NamesToListConverter:
+          type: ListHandler                       
+
 
     VanGenuchten:
       __class__: PhaseSaturationVanGenuchten
