@@ -516,24 +516,6 @@ PhaseSources:
           domains:
             DoubleValue:
 
-  Geom:
-    __class__: PhaseSourcesGeom
-    __rst__:
-      skip:
-    __doc__: ''
-
-    .{geom_input_name}:
-      __class__: PhaseSourceGeomItem
-      __rst__:
-        skip:
-      __doc__: ''
-
-      Value:
-        help: >
-          [Type: double] This key specifies the value of a constant source term applied to phase phase _name on geometry geom_name.
-        domains:
-          DoubleValue:
-
 # -----------------------------------------------------------------------------
 # Contaminants
 # -----------------------------------------------------------------------------
