@@ -134,7 +134,6 @@ class SplitHandler:
         raise ValueHandlerException(
             f'{value} is not of the expected type for SplitHandler')
 
-
 # -----------------------------------------------------------------------------
 # Helper map with an instance of each Value handler
 # -----------------------------------------------------------------------------
