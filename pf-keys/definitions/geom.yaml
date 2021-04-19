@@ -439,8 +439,6 @@ Geom:
           type: ChildrenHandler
           class_name: GeomItem
           location: ..
-        NameToListConverter:
-          type: ListHandler
 
 
   # GeomItems: for keys in the form Geom.geom_name.[]
@@ -1359,7 +1357,10 @@ TopoSlopesX:
       slopes may be assigned by PFBFile or as Constant by geometry. These geometries must cover the entire upper surface of the
       computational domain.
     domains:
-      AnyString:
+      EnumDomain:
+        locations: 
+          - /GeomInput/{GeomInputItem}/GeomNames
+          - /GeomInput/{GeomInputItem}/GeomName
     handlers:
       TopoSlopesXUpdater:
         type: ChildrenHandler
@@ -1415,7 +1416,10 @@ TopoSlopesY:
       slopes may be assigned by PFBFile or as Constant by geometry. These geometries must cover the entire upper surface of the
       computational domain.
     domains:
-      AnyString:
+      EnumDomain:
+        locations: 
+          - /GeomInput/{GeomInputItem}/GeomNames
+          - /GeomInput/{GeomInputItem}/GeomName
     handlers:
       TopoSlopesYUpdater:
         type: ChildrenHandler
@@ -1513,7 +1517,10 @@ Mannings:
       values may be assigned by PFBFile or as Constant by geometry. These geometries must cover the entire upper
       surface of the computational domain.
     domains:
-      AnyString:
+      EnumDomain:
+        locations: 
+          - /GeomInput/{GeomInputItem}/GeomNames
+          - /GeomInput/{GeomInputItem}/GeomName
     handlers:
       ManningsGeomUpdater:
         type: ChildrenHandler

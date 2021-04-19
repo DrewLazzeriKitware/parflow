@@ -303,7 +303,10 @@ Phase:
         help: >
           [Type: string] This specifies the geometry names for setting the heat capacity.
         domains:
-          AnyString:
+          EnumDomain:
+            locations: 
+              - /GeomInput/{GeomInputItem}/GeomNames
+              - /GeomInput/{GeomInputItem}/GeomName
         handlers:
           PhaseNameHeatGeomItemUpdater:
             type: ChildrenHandler
@@ -385,7 +388,10 @@ PhaseConcen:
           [Type: string] This key specifies the geometries on which an initial condition will be given, if the type was set to Constant.
           Note that geometries listed later “overlay” geometries listed earlier.
         domains:
-          AnyString:
+          EnumDomain:
+            locations: 
+              - /GeomInput/{GeomInputItem}/GeomNames
+              - /GeomInput/{GeomInputItem}/GeomName
         handlers:
           PhaseConcenContaminantGeomItemUpdater:
             type: ChildrenHandler
@@ -467,7 +473,10 @@ PhaseSources:
         [Type: string] This key specifies the names of the geometries on which source terms will be specified. This is used only for
         Constant type phase sources. Regions listed later “overlay” regions listed earlier.
       domains:
-        AnyString:
+        EnumDomain:
+          locations: 
+            - /GeomInput/{GeomInputItem}/GeomNames
+            - /GeomInput/{GeomInputItem}/GeomName
       handlers:
         PhaseSourceGeomUpdater:
           type: ChildrenHandler
