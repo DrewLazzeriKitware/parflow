@@ -516,6 +516,21 @@ PhaseSources:
           domains:
             DoubleValue:
 
+  GeomNames:
+    help: > 
+      [Type: string] This key specifies the names of the geometries on which source terms will be specified. This is used only for
+      Constant type phase sources. Regions listed later "overlay" regions listed earlier.
+    domains: 
+      EnumDomain:
+        locations:
+          - /GeomInput/{GeomInputItem}/GeomNames
+          - /GeomInput/{GeomInputItem}/GeomName
+    handlers:
+      PhaseSourceGeomUpdater:
+        type: ChildrenHandler
+        class_name: PhaseSourceGeomItem
+        location: ./Geom
+
   Geom:
     __class__: PhaseSourcesGeom
     __rst__:
