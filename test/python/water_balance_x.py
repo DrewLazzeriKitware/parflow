@@ -48,7 +48,7 @@ wbx.Process.Topology.R = 1
 # Computational Grid
 #---------------------------------------------------------
 
-wbx.ComputationalGrid.Lower.X = 0.0
+wbx.ComutationalGrid.Lower.X = 0.0 # Broken to test testing harness
 wbx.ComputationalGrid.Lower.Y = 0.0
 wbx.ComputationalGrid.Lower.Z = 0.0
 
