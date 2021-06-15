@@ -588,6 +588,8 @@ Contaminants:
     __rst__:
       skip:
     __doc__: ''
+    __simput__: 
+      type: InlinedTable
 
     Degradation:
       __rst__:

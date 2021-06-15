@@ -156,6 +156,10 @@ Cycle:
     __rst__:
       name: Cycle.{cycle_name}
     __doc__: ''
+    __simput__: 
+      type: InlinedTable
+
+
 
     Names:
       help: >
@@ -191,6 +195,8 @@ Cycle:
       __class__: CycleIntItem
       __rst__:
         name: Cycle.{cycle_name}.{interval_name}
+      __simput__:
+        type: InlinedTable
       __doc__: ''
 
       Length:
