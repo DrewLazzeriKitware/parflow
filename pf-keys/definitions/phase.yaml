@@ -589,7 +589,7 @@ Contaminants:
       skip:
     __doc__: ''
     __simput__: 
-      type: InlinedTable
+      type: VariableTable
 
     Degradation:
       __rst__:

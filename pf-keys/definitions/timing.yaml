@@ -157,7 +157,7 @@ Cycle:
       name: Cycle.{cycle_name}
     __doc__: ''
     __simput__: 
-      type: InlinedTable
+      type: VariableTable
 
 
 
@@ -196,7 +196,7 @@ Cycle:
       __rst__:
         name: Cycle.{cycle_name}.{interval_name}
       __simput__:
-        type: InlinedTable
+        type: VariableTable
       __doc__: ''
 
       Length:
