@@ -206,6 +206,8 @@ Wells:
             __rst__:
               skip:
             __doc__: ''
+            __simput__: 
+              type: VariableTable
             # typos in the description - assign
             Value:
               __rst__:
@@ -230,6 +232,8 @@ Wells:
             __rst__:
               skip:
             __doc__: ''
+            __simput__:
+              type: VariableTable
 
             .{contaminant_name}:
               __class__: InjectionConcentrationPhaseContaminantItem
@@ -237,6 +241,8 @@ Wells:
               __rst__:
                 skip:
               __doc__: ''
+              __simput__:
+                type: VariableTable
               Fraction:
                 help: >
                   [Type: double] This key specifies the fraction of the extracted contaminant which gets resupplied to the injection well.

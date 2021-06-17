@@ -186,6 +186,8 @@ Phase:
     __rst__:
       skip:
     __doc__: ''
+    __simput__:
+      type: VariableTable
 
     Density:
       __rst__:
@@ -349,6 +351,8 @@ Phase:
         __rst__:
           skip:
         __doc__: ''
+        __simput__:
+          type: VariableTable
 
         HeatCapacity:
           __rst__:
