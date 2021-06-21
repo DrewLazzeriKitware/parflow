@@ -170,7 +170,7 @@ Cycle:
       domains:
         AnyString:
       __simput__:
-        table_label: Names for Cycles
+        table_label: Names for Intervals
         table_column_order: 2
       handlers:
         CycleUpdater:
