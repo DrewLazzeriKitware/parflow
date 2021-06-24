@@ -35,6 +35,8 @@ Wells:
         skip:
       __doc__: >
         This is to set properties for named wells within specified cycles.
+      __simput__:
+        type: VariableTable
 
       Pressure:
         __class__: WellIntervalItemPressure
@@ -65,6 +67,8 @@ Wells:
           __rst__:
             skip:
           __doc__: ''
+          __simput__: 
+            type: VariableTable
 
           Value:
             __rst__:
@@ -89,6 +93,8 @@ Wells:
           __rst__:
             skip:
           __doc__: ''
+          __simput__:
+            type: VariableTable
 
           # typos in the description - vertical, assign
           Value:
@@ -113,6 +119,8 @@ Wells:
           __rst__:
             skip:
           __doc__: ''
+          __simput__: 
+            type: VariableTable
 
           .{contaminant_name}:
             __class__: ConcentrationPhaseContItem
@@ -120,6 +128,9 @@ Wells:
             __rst__:
               skip:
             __doc__: ''
+          __simput__: 
+            type: VariableTable
+
 
             Value:
               help: >
@@ -161,6 +172,8 @@ Wells:
             __rst__:
               skip:
             __doc__: ''
+            __simput__: 
+              type: VariableTable
             # typos in the description - assign
             Value:
               __rst__:
