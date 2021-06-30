@@ -70,6 +70,8 @@ ICSaturation:
     handlers:
       NamesToListConverter:
         type: ListHandler                       
+    __simput__: 
+      type: MultiSelect
 
 # Setting ICPressure Type and GeomNames
 ICPressure:
