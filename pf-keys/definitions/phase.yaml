@@ -42,6 +42,10 @@ Phase:
         type: ChildrenHandler
         class_name: InjectionConcentrationPhaseItem
         location: /Wells/{WellItem}/{WellIntervalItem}/Injection/Concentration
+      WellIntervalConcentrationPhaseItemUpdater:
+        type: ChildrenHandler
+        class_name: ConcentrationPhaseItem
+        location: /Wells/{WellItem}/{WellIntervalItem}/Concentration
       WellIntervalSaturationPhaseItemUpdater:
         type: ChildrenHandler
         class_name: WellIntervalSaturationPhaseItem

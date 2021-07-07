@@ -139,9 +139,9 @@ Wells:
             __rst__:
               skip:
             __doc__: ''
-          __simput__: 
-            type: VariableTable
-            table_label: Contaminant
+            __simput__: 
+              type: VariableTable
+              table_label: Contaminant
 
 
             Value:
