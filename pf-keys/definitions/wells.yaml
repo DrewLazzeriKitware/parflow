@@ -41,7 +41,10 @@ Wells:
       __simput__:
         type: VariableTable
         table_label: Interval
-        sparse_key: Cycle/cycle_name_
+        match_condition: 
+          siblingParamKey: Wells/well_name_/Cycle
+          foreignNameKey: Cycle/cycle_name_
+
 
       Pressure:
         __class__: WellIntervalItemPressure
