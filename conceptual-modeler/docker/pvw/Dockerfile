@@ -13,9 +13,10 @@
 # sudo docker run --runtime=nvidia -P --entrypoint /bin/bash -ti pvw-v5.6.0-egl
 #
 
-ARG BASE_IMAGE=kitware/paraviewweb:pv-5.6.0-egl
+ARG PARFLOW_IMAGE=parflow-development 
+ARG BASE_IMAGE=kitware/paraviewweb:pv-v5.6.0-egl
+FROM ${PARFLOW_IMAGE} AS parflow
 FROM ${BASE_IMAGE}
-
 USER root
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -23,6 +24,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         apache2 \
         libapr1-dev \
         apache2-utils \
+        openmpi-bin \
+        libopenmpi-dev \
+        libopenblas-dev \
+        liblapack-dev \
         sudo && \
     rm -rf /var/lib/apt/lists/*
 
@@ -59,6 +64,17 @@ RUN a2enmod vhost_alias && \
 
 # Open port 80 to the world outside the container
 EXPOSE 80
+
+# Bring parflow into image
+COPY --from=parflow /opt/parflow /opt/parflow
+COPY --from=parflow /opt/hypre   /opt/hypre
+COPY --from=parflow /opt/netcdf  /opt/netcdf
+COPY --from=parflow /opt/hdf5    /opt/hdf5
+COPY --from=parflow /opt/silo    /opt/silo
+
+ENV HYPRE_DIR /opt/hypre
+ENV PARFLOW_DIR /opt/parflow
+RUN pip install -r /opt/parflow/python/requirements_all.txt
 
 # Start the container.  If we're not running this container, but rather are
 # building other containers based on it, this entry point can/should be
