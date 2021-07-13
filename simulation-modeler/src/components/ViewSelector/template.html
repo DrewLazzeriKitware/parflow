@@ -1,0 +1,10 @@
+<v-tabs grow dense color="#f5f5f5" v-model="selectedView">
+  <v-tabs-slider />
+  <v-tab
+    v-for="view in views"
+    :key="view.key"
+    @click.stop="dataModel.activateView(view.id, view.index)"
+  >
+    {{view.displayLabel}}
+  </v-tab>
+</v-tabs>

@@ -1,0 +1,12 @@
+.soilSelector {
+  height: 100%;
+  width: 20%;
+  display: flex;
+  padding: 24px 0 0 12px;
+  flex-direction: column;
+}
+
+.soilButton {
+  padding: 0;
+  margin: 0;
+}

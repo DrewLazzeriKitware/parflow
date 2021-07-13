@@ -1,0 +1,39 @@
+<v-app>
+  <v-toolbar app dense clipped-left>
+    <v-btn icon @click="drawerOpen = !drawerOpen">
+      <img src="logo.svg" aria-hidden="true"
+    /></v-btn>
+    <v-toolbar-title :class="$style.toolbarTitle">
+      Parflow Modeler
+    </v-toolbar-title>
+
+    <v-spacer />
+    <v-btn color="primary" @click="save">
+      <v-icon> {{$vuetify.icons.save}} </v-icon>
+      <span style="padding-left: .5em;"> Save </span>
+    </v-btn>
+    <v-btn color="secondary" @click="run">
+      <v-icon> {{$vuetify.icons.run}} </v-icon>
+      <span style="padding-left: .5em;"> Run </span>
+    </v-btn>
+    <template v-slot:extension>
+      <!--
+      <view-selector />
+      -->
+    </template>
+  </v-toolbar>
+  <v-navigation-drawer app clipped v-model="drawerOpen">
+    <workflow-menu />
+  </v-navigation-drawer>
+  <v-content app>
+    <workflow-content />
+    <!-- 
+    <div :class="$style.viewContainer">
+      <soil-selector />
+      <filtered-view />
+    </div>
+    <Overview />
+        -->
+  </v-content>
+  <error />
+</v-app>

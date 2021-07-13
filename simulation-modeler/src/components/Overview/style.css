@@ -1,0 +1,17 @@
+.simputContainer {
+  position: relative;
+}
+
+.simputSidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+}
+
+.simputContent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+}

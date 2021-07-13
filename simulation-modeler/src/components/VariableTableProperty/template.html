@@ -1,0 +1,47 @@
+<div style="overflow-x: scroll;">
+  <table v-show="isVisible" class="my-4">
+    <tr>
+      <!-- Table header row -->
+      <th
+        v-for="(row, rowKey) in variableHeaders"
+        :key="`variableHeader` + rowKey"
+        style="left: 0; position: sticky; font-variant: small-caps; text-align: center; z-index: 1; "
+        class="grey lighten-2 px-4"
+      >
+        {{row}}
+      </th>
+      <th
+        v-if="tableValue.rows.length"
+        v-for="(row, rowKey) in columnHeaders"
+        :key="`columnHeader` + rowKey"
+      >
+        {{row}}
+      </th>
+      <td v-if="!tableValue.rows.length">
+        (Table is empty)
+      </td>
+    </tr>
+    <!-- Table body rows-->
+    <tr v-for="(row, i) in tableValue.rows" :key="i">
+      <td
+        v-for="(rowSection, rowSectionHeader) in row.rowKeys"
+        :key="rowSectionHeader"
+        style="left: 0; position: sticky; font-variant: small-caps; text-align: center; z-index: 1"
+        class="grey lighten-2 px-4"
+      >
+        {{rowSection}}
+      </td>
+      <td
+        v-for="(column, j) in columnOrder"
+        :key="j"
+        style="min-width: 300px; vertical-align: top;"
+      >
+        <property-factory
+          :prop="row.rowValues[column]"
+          :viewData="viewData"
+          @change="updateTable()"
+        />
+      </td>
+    </tr>
+  </table>
+</div>

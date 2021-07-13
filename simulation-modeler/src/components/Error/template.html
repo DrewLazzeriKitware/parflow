@@ -1,0 +1,11 @@
+<v-footer app v-show="error">
+  <v-alert
+    type="warning"
+    :value="true"
+    :class="$style.error"
+    dismissible
+    @input="clear"
+  >
+    {{error}}
+  </v-alert>
+</v-footer>

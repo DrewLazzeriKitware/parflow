@@ -1,0 +1,11 @@
+<div :class="$style.soilSelector" v-show="name === activeName">
+  <v-btn @click="add" :class="$style.soilButton"> Add new soil </v-btn>
+  <v-btn
+    v-for="(soilType, i) in soilTypes"
+    :key="i"
+    @click="change(soilType.index)"
+    :class="$style.soilButton"
+  >
+    {{ soilType.label }}
+  </v-btn>
+</div>

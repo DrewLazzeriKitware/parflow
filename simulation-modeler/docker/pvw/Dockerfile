@@ -17,7 +17,7 @@ ARG PARFLOW_IMAGE=parflow-development
 ARG BASE_IMAGE=kitware/paraview:pvw-v5.7.1-osmesa-py3
 FROM ${PARFLOW_IMAGE} AS parflow
 FROM ${BASE_IMAGE}
-USER root
+USER ubuntu
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         apache2-dev \
