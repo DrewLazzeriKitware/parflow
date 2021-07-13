@@ -14,7 +14,7 @@
 #
 
 ARG PARFLOW_IMAGE=parflow-development 
-ARG BASE_IMAGE=kitware/paraviewweb:pv-v5.6.0-egl
+ARG BASE_IMAGE=kitware/paraview:pvw-v5.7.1-osmesa-py3
 FROM ${PARFLOW_IMAGE} AS parflow
 FROM ${BASE_IMAGE}
 USER root
@@ -31,40 +31,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         sudo && \
     rm -rf /var/lib/apt/lists/*
 
-
-RUN groupadd proxy-mapping && \
-    groupadd pvw-user && \
-    useradd --system -g pvw-user -G proxy-mapping -s /sbin/nologin pvw-user && \
-    usermod -a -G proxy-mapping www-data && \
-    useradd admin && echo "admin:admin" | chpasswd && adduser admin sudo && \
-    mkdir -p /opt/launcher/log && \
-    chown -R pvw-user:pvw-user /opt/launcher && \
-    mkdir -p /opt/paraviewweb/scripts && \
-    touch /opt/launcher/proxy-mapping.txt && \
-    chown pvw-user:proxy-mapping /opt/launcher/proxy-mapping.txt && \
-    chmod 660 /opt/launcher/proxy-mapping.txt
-
-# Copy the apache configuration file into place
-COPY config/apache/001-pvw.conf /etc/apache2/sites-available/001-pvw.conf
-
-# Copy the script into place
-COPY scripts/start.sh /opt/paraviewweb/scripts/
-COPY scripts/addEndpoints.sh /opt/paraviewweb/scripts/
-COPY scripts/server.sh /opt/paraviewweb/scripts/
-
-# Configure the apache web server
-RUN a2enmod vhost_alias && \
-    a2enmod proxy && \
-    a2enmod proxy_http && \
-    a2enmod proxy_wstunnel && \
-    a2enmod rewrite && \
-    a2enmod headers && \
-    a2dissite 000-default.conf && \
-    a2ensite 001-pvw
-
-# Open port 80 to the world outside the container
-EXPOSE 80
-
 # Bring parflow into image
 COPY --from=parflow /opt/parflow /opt/parflow
 COPY --from=parflow /opt/hypre   /opt/hypre
@@ -74,6 +40,8 @@ COPY --from=parflow /opt/silo    /opt/silo
 
 ENV HYPRE_DIR /opt/hypre
 ENV PARFLOW_DIR /opt/parflow
+
+RUN pip3 install --upgrade pip
 RUN pip install -r /opt/parflow/python/requirements_all.txt
 
 # Start the container.  If we're not running this container, but rather are

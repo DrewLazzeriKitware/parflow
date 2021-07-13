@@ -1,0 +1,28 @@
+{ "configuration": {
+    "host" : "localhost",
+    "port" : 9000,
+    "endpoint": "paraview",
+    "sessionURL": "SESSION_URL_ROOT/proxy?sessionId=${id}&path=ws",
+    "proxy_file": "/opt/launcher/proxy-mapping.txt",
+    "log_dir" : "/pvw/launcher/logs",
+    "timeout" : 45,
+    "fields" : ["id"]
+  },
+  "resources" : [ { "host" : "localhost", "port_range" : [9001, 9100] } ],
+  "properties" : {
+    "dataDir": "/data",
+    "python_exec" : "/opt/paraview/bin/pvpython",
+    "server": "/pvw/server/app.py"
+  },
+  "apps": {
+    "modeler": {
+      "cmd" : [
+          "${python_exec}",
+          "${server}",
+          "--port", "${port}",
+          "--data", "${dataDir}/"
+      ],
+      "ready_line" : "Starting factory"
+    }
+  }
+}
